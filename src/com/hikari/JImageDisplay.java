@@ -19,18 +19,18 @@ public class JImageDisplay extends JComponent {
     }
 
     /** Метод отрисовки изображения. Входной аргумент - объект класса Graphics. **/
-    public void paintComponent(Graphics graphics){
+    public void paintComponent(Graphics graphics) {
         /** Вызов метода суперкласса paintComponent для правильного отображения объектов. **/
         super.paintComponent(graphics);
         /** Объект graphics вызывает метод drawImage, который отрисовывает заданное изображение. **/
-        graphics.drawImage (image, 0, 0, image.getWidth(), image.getHeight(), null);
+        graphics.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
     }
 
     /** Метод закрашивает все пиксели изображения в черный цвет. Очистка изображения. **/
-    public void clearImage(){
+    public void clearImage() {
         /** В двух циклах перебираются все пискели по координатам x, y. **/
-        for (int i = 0; i < image.getWidth(); i++){
-            for (int j = 0; j < image.getHeight(); j++){
+        for (int i = 0; i < image.getWidth(); i++) {
+            for (int j = 0; j < image.getHeight(); j++) {
                 /** Затем каждый пиксель изображения окрашивается в черный цвет. **/
                 drawPixel(i, j, 0);
             }
@@ -38,9 +38,12 @@ public class JImageDisplay extends JComponent {
     }
 
     /** Метод устанавлиевает цвет rgbColor у конкретного пикселя по ширине и высоте. **/
-    public void drawPixel(int x, int y, int rgbColor){
+    public void drawPixel(int x, int y, int rgbColor) {
         /** Объеккт image вызвает метод setRGB, который присваивает конкретный цвет пикселю. **/
         image.setRGB(x, y, rgbColor);
     }
 
+    public BufferedImage getImage() {
+        return image;
+    }
 }

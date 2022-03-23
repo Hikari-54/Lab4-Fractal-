@@ -2,27 +2,23 @@ package com.hikari;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.border.Border;
+import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
 
 public class FractalExplorer {
-    /** JFrame отображает фрактал **/
-    private JImageDisplay imageDisplay;
     /** displaySize задает размеры окна. Оно будет (displaySize x displaySize). **/
     private int displaySize;
+    /** JFrame отображает фрактал **/
+    private JImageDisplay imageDisplay;
     /** Инициализация объекта fractalGenerator соответствующего класса. **/
     private FractalGenerator fractalGenerator;
     /** Инициализация объекта range, указывающий диапазон комплексной
      плоскости, которая выводится на экран  **/
     private Rectangle2D.Double range;
 
-
     /** Конструктор инициализации. **/
-    private FractalExplorer(int displaySize){
+    private FractalExplorer (int displaySize) {
         /** Задает размеры окна, которые были переданы как входной аргумент. **/
         this.displaySize = displaySize;
         /** Создание объекта, принадлежащему классу Mandelbrot. **/
@@ -36,16 +32,13 @@ public class FractalExplorer {
 
     /** Точка входа в программу, метод main(). **/
     public static void main(String[] args) {
-
         FractalExplorer fractalExplorer = new FractalExplorer(600);
-        fractalExplorer.createAndShowGUI();
+        fractalExplorer.setGUI();
         fractalExplorer.drawFractal();
     }
 
-
-
     /** Настраивает интерфейс (GUI). **/
-    public void createAndShowGUI() {
+    public void setGUI() {
         /** Создает окно(frame) и его название. **/
         JFrame frame = new JFrame("Fractal Generator");
         /** Создает кнопку и её название. **/
@@ -103,8 +96,7 @@ public class FractalExplorer {
     /** Этот класс обрабатывает события от кнопки сброса(reset).
      * <implements ActionListener> реализует соответствующий интерфейс .**/
     public class ActionHandler implements ActionListener {
-        @Override
-        /** Метод сбрасывает диапазон(range) к начальному
+        @Override/** Метод сбрасывает диапазон(range) к начальному
          * и перерисовывает фрактал. **/
         public void actionPerformed(ActionEvent e) {
             fractalGenerator.getInitialRange(range);

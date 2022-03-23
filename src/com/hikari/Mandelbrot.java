@@ -9,11 +9,11 @@ public class Mandelbrot extends FractalGenerator {
     /** Переопределяем абстрактный метод getInitialRange, который определяет
      *  рассматриваемую область комплексной плоскости **/
     @Override
-    public void getInitialRange(Rectangle2D.Double range){
+    public void getInitialRange(Rectangle2D.Double range) {
         range.x = -2;
-        range.x = 1.5;
-        range.width = 3;
+        range.y = -1.5;
         range.height = 3;
+        range.width = 3;
     }
 
     /** Метод numIterations реализует итеративную функцию для фрактала Мандельброта. **/
